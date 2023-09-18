@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
+public class T1_Simulation_of_Events {
+    public static void main(String[] args) {
+        // Press Alt+Enter with your caret at the highlighted text to see how
+        // IntelliJ IDEA suggests fixing it.
+        Scanner sc=new Scanner(System.in);
+        System.out.println("How many possible outcomes are likely to occur in the given event ?");
+        int n=sc.nextInt();
+        ArrayList<Integer> temp=new ArrayList<>();
+        int sum=0;
+        for(int i=1; i<=n; i++){
+            System.out.println("Please input the probability percentage of outcome "+i);
+            int k=sc.nextInt();
+            sum=sum+k;
+            if(sum>100){System.out.println("Total probability of outcomes is more than 100"); n=i; break;}
+            temp.add(k);
+        }
+        System.out.println("Please input number of occurrences we are expecting");
+        int k=sc.nextInt();
+        ArrayList<Integer> ans=new ArrayList<>();
+        for(int i=1; i<=n; i++){
+            ans.add(0);
+        }
+        int probarr[]=new int[n];
+        sum=0;
+        for(int i=0; i<n; i++){
+            sum=sum+temp.get(i);
+            probarr[i]=sum;
+        }
+        for(int i=1; i<=k; i++){
+            double val=Math.random();
+            val=val*100;
+            for(int j=0; j<n; j++){
+                if(val<=probarr[j]){ int t=ans.get(j); ans.set(j, t+1); break;}
+            }
+        }
+        for(int i=1; i<=n; i++){
+            System.out.println("Outcome "+ i + " appeared " + ans.get(i-1) + " times");
+        }
+    }
+}
