@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-- 🔭 I’m currently learning DSA and backend engineering.
+- 🔭 I’m currently learning backend engineering.
 - 👯 I’m looking to collaborate on projects, if possible.
 <!--
 **deepak-lamba/deepak-lamba** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
